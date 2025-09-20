@@ -1,0 +1,120 @@
+{
+  "layer": "top",
+  "height": 37,
+  "spacing": 5,
+
+  // Порядок модулей
+  "modules-left": ["image", "hyprland/workspaces", "custom/spotify"],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "tray",
+    "bluetooth",
+    "hyprland/language",
+    "pulseaudio",
+    "network",
+    "custom/power"
+  ],
+
+  "hyprland/window": {
+    "separate-outputs": false
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "1": "󰌽",
+      "2": "󰮯",
+      "3": "",
+      "4": "󰊤",
+      "5": "󰣇",
+      "urgent": "",
+      "active": "",
+      "default": ""
+    },
+    "sort-by-number": true,
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": []
+    }
+  },
+
+  "hyprland/language": {
+    "format": "󰌌 {short}  "
+  },
+
+  "clock": {
+    "format": "{:%H:%M}",
+    "tooltip-format": "{:%A, %B %d, %Y}",
+    "height": 23,
+    "width": 23
+  },
+
+  "tray": {
+    "spacing": 10
+  },
+
+  "network": {
+    "format-wifi": "{ipaddr}",
+    "format-ethernet": "",
+    "format-disconnected": "",
+    "tooltip-format": "Connected to {essid}",
+    "tooltip-format-ethernet": "{ifname} ",
+    "on-click": "hyprctl dispatch exec '[float]' '$TERMINAL -e nmtui'"
+  },
+
+  "pulseaudio": {
+    "scroll-step": 5, // %, can be a float
+    "format": "{icon}",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", "", ""]
+    },
+    "tooltip-format": "{volume}% volume",
+    "on-click": "$HOME/.config/scripts/volume --toggle",
+    "on-scroll-up": "$HOME/.config/scripts/volume --inc",
+    "on-scroll-down": "$HOME/.config/scripts/volume --dec"
+  },
+
+  "custom/power": {
+    "format": "󰐥",
+    "on-click": "wlogout"
+  },
+
+  "image": {
+    "path": "/home/user/.config/waybar/arch.svg",
+    "size": 20,
+    "interval": 5,
+    "on-click": "zen-browser https://archlinux.org"
+  },
+
+  "bluetooth": {
+    "format": "󰂯",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "blueman-manager"
+  },
+
+  "custom/spotify": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/scripts/music",
+    "on-click-middle": "playerctl play-pause",
+    "on-click": "playerctl previous",
+    "on-click-right": "playerctl next",
+    "escape": true
+  },
+
+  "custom/weather": {
+    "exec": "~/.config/scripts/weather",
+    "interval": 3600,
+    "format": "{}",
+    "return-type": "text"
+  }
+}
+// vim: ft=jsonc
