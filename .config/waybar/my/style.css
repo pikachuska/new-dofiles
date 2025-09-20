@@ -1,0 +1,94 @@
+@import url("file:///home/user/.cache/wal/colors-waybar.css");
+
+* {
+  all: unset;
+  font-family: fortunadotcyrillic;
+  font-weight: 700;
+  font-size: 12px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: @background;
+  border: 2px solid @color1;
+  border-radius: 12px;
+}
+
+tooltip {
+  background-color: @color1;
+  border: 2px solid @color1;
+  font-size: 12px;
+}
+
+tooltip label {
+  margin: 8px;
+  color: @foreground;
+}
+
+#window,
+#custom-music,
+#clock,
+#tray,
+#cpu,
+#battery,
+#network,
+#pulseaudio,
+#language {
+  margin: 6px 6px 6px 0;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background-color: @color1;
+  border: 2px solid @color1;
+  color: @foreground;
+}
+
+#network {
+  min-width: 13px;
+  background: @color2;
+  color: @foreground;
+}
+
+#cpu,
+#battery,
+#pulseaudio {
+  min-width: 60px;
+}
+
+#cpu {
+  background: @color3;
+  color: @foreground;
+}
+
+#pulseaudio {
+  background: @color4;
+  color: @foreground;
+}
+
+#battery.warning,
+#battery.critical,
+#battery.urgent,
+#cpu.critical {
+  color: #f38ba8;
+  border-color: #f38ba8;
+}
+
+#language {
+  min-width: 20px;
+  background-color: @color1;
+}
+
+#custom-control {
+  font-size: 23px;
+  padding: 0 5px;
+  color: @foreground;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+#tray {
+  background: @color1;
+}
+
+#clock {
+  margin-left: 15px;
+}

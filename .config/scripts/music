@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+status=$(playerctl status 2>/dev/null)
+icon=""
+
+if [[ $status == "Playing" ]]; then
+  info=$(playerctl metadata --format '{{title}} - {{artist}}')
+  [[ ${#info} -gt 40 ]] && info="${info:0:40}..."
+  text="$info $icon"
+elif [[ $status == "Paused" ]]; then
+  info=$(playerctl metadata --format '{{title}} - {{artist}}')
+  [[ ${#info} -gt 40 ]] && info="${info:0:40}..."
+  text=" $info $icon"
+else
+  text=""
+fi
+
+echo -e "{\"text\":\"$text\", \"class\":\"${status,,}\"}"

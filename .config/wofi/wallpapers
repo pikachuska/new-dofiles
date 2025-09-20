@@ -1,0 +1,5 @@
+[wofi]
+dmenu = false
+show-images = true
+image-size = 150
+prompt = "Выбери обои:"
